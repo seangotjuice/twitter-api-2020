@@ -1,25 +1,25 @@
-const express = require('express')
-const helpers = require('./_helpers')
-const bodyParser = require('body-parser')
-const session = require('express-session')
+const express = require("express");
+const helpers = require("./_helpers");
+const bodyParser = require("body-parser");
+const session = require("express-session");
+const test = "test";
+const app = express();
 
-const app = express()
-
-if (process.NODE_ENV !== 'production') {
-  require('dotenv').config()
+if (process.NODE_ENV !== "production") {
+  require("dotenv").config();
 }
-const port = 3000
+const port = 3000;
 
 // bodyparser設定
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // use helpers.getUser(req) to replace req.user
-function authenticated (req, res, next) {
+function authenticated(req, res, next) {
   // passport.authenticate('jwt', { ses...
 }
 
-app.get('/', (req, res) => res.send('Hello World!'))
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.get("/", (req, res) => res.send("Hello World!"));
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
-module.exports = app
+module.exports = app;
